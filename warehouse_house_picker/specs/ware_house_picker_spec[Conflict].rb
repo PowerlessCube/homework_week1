@@ -20,8 +20,8 @@ class TestWarehouse < Minitest::Test
   end
 
   def test_search_by_list_of_items
-    list_of_items = search_by_list_of_items(["nail filer", "cookie jar", "toothpaste"])
-    assert_equal([:b5, :b10, :b6], list_of_items)
+    list_of_items = search_by_list_of_items(["rusty nail", "shoe lace", "leg warmers"])
+    assert_equal([:c1, :c9, :c10], list_of_items)
   end
 
 end
