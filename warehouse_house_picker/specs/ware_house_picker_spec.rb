@@ -13,7 +13,7 @@ class TestWarehouse < Minitest::Test
     shelf = search_by_item('nail filer')
     assert_equal(:b5, shelf)
   end
-  #
+
   def test_search_by_list_of_shelves
     list_of_shelves = search_by_list_of_shelves([:b5, :b10, :b6])
     assert_equal(["nail filer", "cookie jar", "toothpaste"], list_of_shelves)
