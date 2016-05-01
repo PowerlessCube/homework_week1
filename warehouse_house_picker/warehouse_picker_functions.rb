@@ -33,20 +33,22 @@ WAREHOUSE = [
       {:b10 => "cookie jar"}
     ]
 
-def search_by_shelf(bay)
+#searches warehouse iventory by shelf location for and returns an index and an item.
+def search_by_shelf(shelf)
   index = 0
   while index < WAREHOUSE.length
-    if WAREHOUSE[index][bay] != nil
-      return [index, WAREHOUSE[index][bay]]
+    if WAREHOUSE[index][shelf] != nil
+      return [index, WAREHOUSE[index][shelf]]
     end
     index += 1
   end
 end
-#My favourite answer for this question 1
+#My Original answer for question 1 without location index.
     # def search_by_shelf(bay)
     #   WAREHOUSE[bay]
     # end
 
+#searches warehouse iventory by item and returns an index and shelf location.
     def search_by_item(item)
       index = 0
       while index < WAREHOUSE.length
@@ -57,11 +59,12 @@ end
       end
     end
 
-#My favourite answer for this question 2
+#My Original answer for question 2 without location index.
     # def search_by_item(item)
     #   WAREHOUSE.key(item)
     # end
 
+#searches warehouse iventory by an array of shelf locations and returns the list of items and the distance in a hash.
     def search_by_list_of_shelves(list_of_shelves)
 
       items_location = []
@@ -76,10 +79,11 @@ end
         items.push(item[1])
       end
 
-      return items << (locations.max - locations.min)
+      return {items => (locations.max - locations.min)}
 
     end
-    #
+
+#searches warehouse iventory by an array of items and returns the list of shelves in the correct order of the warehouse.
     def search_by_list_of_items(list_of_items)
       shelf_locations = []
       shelves = []
@@ -93,10 +97,4 @@ end
         end
         return shelves
     end
-    #
-    # def get_distance()
-    #
-    # end
-
-
 nil
